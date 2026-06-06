@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
-import { auth, signInWithGoogle, getGoogleRedirectResult, signOutUser } from '../firebase/auth';
+import { auth, signInWithGoogle, signOutUser } from '../firebase/auth';
 import { db, COLLECTIONS } from '../firebase/firestore';
 import { doc, setDoc, getDoc, serverTimestamp } from 'firebase/firestore';
 import { resolveDisplayName } from '../utils/constants';
@@ -13,16 +13,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [displayName, setDisplayName] = useState('');
-  const [loginError, setLoginError] = useState('');
-
   useEffect(() => {
-    // Pick up the result after Google redirects back to the app.
-    getGoogleRedirectResult().catch(err => {
-      console.error('Google redirect sign-in failed:', err?.code, err?.message);
-      setLoginError('Sign-in failed. Please try again.');
-      setLoading(false);
-    });
-
     const unsub = onAuthStateChanged(auth, async (firebaseUser) => {
       try {
         if (firebaseUser) {
@@ -61,7 +52,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => signOutUser();
 
   return (
-    <AuthContext.Provider value={{ user, displayName, loading, login, logout, loginError }}>
+    <AuthContext.Provider value={{ user, displayName, loading, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

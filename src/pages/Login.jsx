@@ -4,12 +4,21 @@ import { Package2, Chrome } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 
 export default function Login() {
-  const { login, loginError } = useAuth();
+  const { login } = useAuth();
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     setLoading(true);
-    login(); // triggers a page redirect — no catch needed here
+    setError('');
+    try {
+      await login();
+    } catch (e) {
+      console.error('Sign-in error:', e?.code, e?.message);
+      setError('Sign-in failed. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -40,8 +49,8 @@ export default function Login() {
             Your shared relocation planner for the big move to Costa Rica. Sign in with your Google account to continue.
           </p>
 
-          {loginError && (
-            <div className="mb-4 p-3 bg-red-500/20 border border-red-500/30 rounded-xl text-red-200 text-sm">{loginError}</div>
+          {error && (
+            <div className="mb-4 p-3 bg-red-500/20 border border-red-500/30 rounded-xl text-red-200 text-sm">{error}</div>
           )}
 
           <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
