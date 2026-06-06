@@ -1,0 +1,14 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Only the two owners may read/write anything (items, categories,
+    // documents, comments, activities, settings, users, budgets, ...).
+    match /{document=**} {
+      allow read, write: if request.auth != null
+        && request.auth.token.email in [
+          'vigneshvelmurugann@gmail.com',
+          's.firdousefathima@gmail.com'
+        ];
+    }
+  }
+}
