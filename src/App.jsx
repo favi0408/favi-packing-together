@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { AppProvider } from './contexts/AppContext';
 import { Sidebar } from './components/Layout/Sidebar';
@@ -55,12 +55,12 @@ export default function App() {
   return (
     <AuthProvider>
       <AppProvider>
-        <BrowserRouter basename="/favi-packing-together">
+        <HashRouter>
           <Routes>
             <Route path="/login" element={<PublicRoute />} />
             <Route path="/*" element={<ProtectedLayout />} />
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </AppProvider>
     </AuthProvider>
   );
