@@ -6,13 +6,14 @@ export default {
     extend: {
       colors: {
         // Custom dark-mode rose backgrounds
+        // Dark-mode rose palette — clearly pink/rose, not near-black
         drose: {
-          950: '#120009',
-          900: '#1e000f',
-          800: '#2d0018',
-          700: '#42001f',
-          600: '#5c0028',
-          500: '#7b0035',
+          950: '#3b0019',   // body bg — deep rose
+          900: '#4d0022',   // cards / sidebar
+          800: '#62002c',   // inputs / secondary bg
+          700: '#800038',   // borders
+          600: '#9d1048',   // hover states
+          500: '#be185d',   // accents (= rose-700)
         },
         primary: {
           50:'#fff0f5',100:'#fce7f3',200:'#fbcfe8',300:'#f9a8d4',

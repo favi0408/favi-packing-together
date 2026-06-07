@@ -5,7 +5,7 @@
 @layer base {
   * { box-sizing: border-box; }
   html { font-family: 'Inter', system-ui, sans-serif; scroll-behavior: smooth; }
-  body { @apply bg-pink-50 dark:bg-drose-950 text-gray-900 dark:text-pink-100 min-h-screen; }
+  body { @apply bg-pink-50 dark:bg-drose-950 text-rose-950 dark:text-pink-100 min-h-screen; }
 }
 
 @layer utilities {
