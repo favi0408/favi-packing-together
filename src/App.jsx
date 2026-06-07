@@ -15,36 +15,43 @@ import DeliveryTracker from './pages/DeliveryTracker';
 import Notes from './pages/Notes';
 import Activity from './pages/Activity';
 
-// ── Fixed background hearts that always float over everything ─────────────────
+// ── Rising hearts — start at bottom, float to top, loop forever ──────────────
+// [left%, duration(s), delay(s), size(px)]
 const BG_HEARTS = [
-  { l:5,  t:10, s:22, d:9,  delay:0   },
-  { l:15, t:60, s:18, d:7,  delay:1.2 },
-  { l:25, t:30, s:28, d:11, delay:0.5 },
-  { l:38, t:75, s:16, d:8,  delay:2   },
-  { l:50, t:15, s:24, d:10, delay:0.8 },
-  { l:62, t:55, s:20, d:7,  delay:1.6 },
-  { l:72, t:85, s:26, d:9,  delay:0.3 },
-  { l:80, t:25, s:18, d:8,  delay:1.9 },
-  { l:90, t:65, s:22, d:11, delay:0.6 },
-  { l:45, t:45, s:30, d:12, delay:2.4 },
-  { l:8,  t:88, s:16, d:7,  delay:1   },
-  { l:95, t:40, s:20, d:9,  delay:1.5 },
+  [3,  9,  0],   [8,  7,  1.5], [13, 11, 0.3], [18, 8,  2.8],
+  [23, 10, 0.7], [28, 7,  3.5], [33, 9,  1.1], [38, 12, 0.4],
+  [43, 8,  2.2], [48, 10, 1.8], [52, 7,  0.9], [57, 9,  3.1],
+  [62, 11, 0.2], [67, 8,  2.5], [72, 10, 1.3], [77, 7,  0.6],
+  [82, 9,  2],   [87, 11, 1.7], [92, 8,  0.5], [96, 10, 3.3],
+  [10, 7,  4],   [35, 9,  4.5], [60, 8,  4.2], [80, 10, 4.8],
+  [50, 11, 5],
 ];
 
 const FloatingHearts = () => (
   <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-    {BG_HEARTS.map((h, i) => (
-      <span key={i} className="absolute select-none bg-heart
-          text-pink-300/30 dark:text-pink-400/20"
-        style={{
-          left: `${h.l}%`, top: `${h.t}%`,
-          fontSize: h.s,
-          animationDuration: `${h.d}s`,
-          animationDelay: `${h.delay}s`,
-        }}>
-        ♥
-      </span>
-    ))}
+    {BG_HEARTS.map(([left, dur, delay], i) => {
+      const size = 14 + (i % 5) * 5;   // sizes: 14,19,24,29,34
+      const isLight = i % 3 === 0;
+      return (
+        <span
+          key={i}
+          className={`absolute bottom-0 select-none rise-heart
+            ${isLight
+              ? 'text-pink-400 dark:text-pink-300'
+              : 'text-rose-400 dark:text-rose-300'
+            }`}
+          style={{
+            left:              `${left}%`,
+            fontSize:          size,
+            opacity:           0.55 + (i % 4) * 0.1,
+            animationDuration: `${dur}s`,
+            animationDelay:    `${delay}s`,
+          }}
+        >
+          ♥
+        </span>
+      );
+    })}
   </div>
 );
 
