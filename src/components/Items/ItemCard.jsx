@@ -14,7 +14,7 @@ export const ItemCard = ({ item, categories = [], onEdit, onDelete, onStatusChan
 
   return (
     <motion.div layout initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
-      className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden hover:border-blue-300 dark:hover:border-blue-700 transition-all group">
+      className="bg-white dark:bg-drose-900 border border-gray-200 dark:border-drose-700 rounded-2xl overflow-hidden hover:border-pink-300 dark:hover:border-pink-700 transition-all group">
       <div className="p-4">
         <div className="flex items-start gap-3">
           <div className="flex-1 min-w-0">
@@ -38,10 +38,10 @@ export const ItemCard = ({ item, categories = [], onEdit, onDelete, onStatusChan
           </div>
         </div>
 
-        <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-100 dark:border-gray-800">
+        <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-100 dark:border-drose-700">
           <div className="flex items-center gap-1">
             <select value={item.status} onChange={e => onStatusChange(item.id, e.target.value, item)}
-              className="text-xs px-2 py-1 border border-gray-200 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500">
+              className="text-xs px-2 py-1 border border-gray-200 dark:border-drose-600 rounded-lg bg-white dark:bg-drose-800 text-gray-600 dark:text-gray-400 focus:outline-none focus:ring-1 focus:ring-pink-500">
               <option value="not_purchased">Not Purchased</option>
               <option value="ordered">Ordered</option>
               <option value="delivered">Delivered</option>
@@ -57,7 +57,7 @@ export const ItemCard = ({ item, categories = [], onEdit, onDelete, onStatusChan
                 <ExternalLink size={15} />
               </a>
             )}
-            <button onClick={() => onEdit(item)} className="p-1.5 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 text-blue-600">
+            <button onClick={() => onEdit(item)} className="p-1.5 rounded-lg hover:bg-pink-50 dark:hover:bg-rose-900/20 text-pink-600">
               <Edit2 size={15} />
             </button>
             <button onClick={() => onDelete(item.id, item.name)} className="p-1.5 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 text-red-500">
@@ -68,11 +68,11 @@ export const ItemCard = ({ item, categories = [], onEdit, onDelete, onStatusChan
 
         {expanded && (
           <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }}
-            className="mt-3 pt-3 border-t border-gray-100 dark:border-gray-800 space-y-2">
+            className="mt-3 pt-3 border-t border-gray-100 dark:border-drose-700 space-y-2">
             {item.addedBy && <p className="text-xs text-gray-500">Added by: <span className="font-medium text-gray-700 dark:text-gray-300">{item.addedBy}</span></p>}
             {item.orderedDate && <p className="text-xs text-gray-500">Ordered: <span className="font-medium text-gray-700 dark:text-gray-300">{item.orderedDate}</span></p>}
             {item.deliveryDate && <p className="text-xs text-gray-500">Expected delivery: <span className="font-medium text-gray-700 dark:text-gray-300">{item.deliveryDate}</span></p>}
-            {item.notes && <p className="text-xs text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800 rounded-lg p-2">{item.notes}</p>}
+            {item.notes && <p className="text-xs text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-drose-800 rounded-lg p-2">{item.notes}</p>}
             {item.createdAt && <p className="text-xs text-gray-400">Added {formatDate(item.createdAt)}</p>}
           </motion.div>
         )}

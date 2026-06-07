@@ -115,12 +115,12 @@ export default function Documents() {
               <motion.div key={doc.id}
                 initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, x: 20 }}
                 transition={{ delay: i * 0.03 }}
-                className={`flex items-center gap-3 bg-white dark:bg-gray-900 border rounded-xl px-4 py-3 group transition-all
+                className={`flex items-center gap-3 bg-white dark:bg-drose-900 border rounded-xl px-4 py-3 group transition-all
                   ${doc.status === 'completed'
                     ? 'border-green-200 dark:border-green-800'
                     : doc.status === 'in_progress'
                     ? 'border-yellow-200 dark:border-yellow-800'
-                    : 'border-gray-200 dark:border-gray-800'}`}
+                    : 'border-gray-200 dark:border-drose-700'}`}
               >
                 {/* Status toggle */}
                 <button
@@ -153,7 +153,7 @@ export default function Documents() {
                 <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity shrink-0">
                   <button
                     onClick={() => openEdit(doc)}
-                    className="p-1.5 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 text-blue-500"
+                    className="p-1.5 rounded-lg hover:bg-pink-50 dark:hover:bg-rose-900/20 text-pink-500"
                     title="Edit"
                   >
                     <Edit2 size={14} />
@@ -186,12 +186,12 @@ export default function Documents() {
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Document Name *</label>
             <input required autoFocus value={form.name} onChange={e => setForm(p => ({ ...p, name: e.target.value }))}
               placeholder="e.g. Passport"
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" />
+              className="w-full px-3 py-2 border border-gray-300 dark:border-drose-600 rounded-xl bg-white dark:bg-drose-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-pink-500 text-sm" />
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Status</label>
             <select value={form.status} onChange={e => setForm(p => ({ ...p, status: e.target.value }))}
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+              className="w-full px-3 py-2 border border-gray-300 dark:border-drose-600 rounded-xl bg-white dark:bg-drose-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-pink-500 text-sm">
               <option value="missing">Missing</option>
               <option value="in_progress">In Progress</option>
               <option value="completed">Ready / Have it</option>
@@ -200,13 +200,13 @@ export default function Documents() {
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Expiry Date</label>
             <input type="date" value={form.expiryDate} onChange={e => setForm(p => ({ ...p, expiryDate: e.target.value }))}
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" />
+              className="w-full px-3 py-2 border border-gray-300 dark:border-drose-600 rounded-xl bg-white dark:bg-drose-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-pink-500 text-sm" />
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Notes</label>
             <textarea rows={2} value={form.notes} onChange={e => setForm(p => ({ ...p, notes: e.target.value }))}
               placeholder="e.g. Renewed in Jan 2025"
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm resize-none" />
+              className="w-full px-3 py-2 border border-gray-300 dark:border-drose-600 rounded-xl bg-white dark:bg-drose-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-pink-500 text-sm resize-none" />
           </div>
           <div className="flex gap-3">
             <Button type="submit" variant="primary" className="flex-1">{edit ? 'Save' : 'Add'}</Button>

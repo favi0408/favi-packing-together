@@ -25,10 +25,10 @@ export default function DeliveryTracker() {
       <div className={`flex items-center gap-2 mb-3`}>
         <Icon size={18} className={color} />
         <h3 className="font-semibold text-gray-900 dark:text-white">{title}</h3>
-        <span className="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 px-2 py-0.5 rounded-full">{list.length}</span>
+        <span className="text-xs bg-gray-100 dark:bg-drose-800 text-gray-600 dark:text-gray-400 px-2 py-0.5 rounded-full">{list.length}</span>
       </div>
       {list.length === 0 ? (
-        <p className="text-sm text-gray-400 text-center py-8 bg-gray-50 dark:bg-gray-900 rounded-2xl border border-dashed border-gray-200 dark:border-gray-800">No items in this section</p>
+        <p className="text-sm text-gray-400 text-center py-8 bg-gray-50 dark:bg-drose-900 rounded-2xl border border-dashed border-gray-200 dark:border-drose-700">No items in this section</p>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {list.map((item, i) => {
@@ -36,7 +36,7 @@ export default function DeliveryTracker() {
             const late = isLate(item) && item.status === 'ordered';
             return (
               <motion.div key={item.id} initial={{ opacity:0, y:10 }} animate={{ opacity:1, y:0 }} transition={{ delay: i*0.05 }}
-                className={`bg-white dark:bg-gray-900 border rounded-2xl p-5 ${late ? 'border-red-300 dark:border-red-700 bg-red-50 dark:bg-red-900/10' : 'border-gray-200 dark:border-gray-800'}`}>
+                className={`bg-white dark:bg-drose-900 border rounded-2xl p-5 ${late ? 'border-red-300 dark:border-red-700 bg-red-50 dark:bg-red-900/10' : 'border-gray-200 dark:border-drose-700'}`}>
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex items-center gap-2">
                     <CategoryIcon category={cat || { name: item.name }} size={36} />
@@ -55,7 +55,7 @@ export default function DeliveryTracker() {
                 </div>
                 {item.purchaseUrl && (
                   <a href={item.purchaseUrl} target="_blank" rel="noreferrer"
-                    className="mt-3 block text-center text-xs text-blue-600 hover:underline">Track Order</a>
+                    className="mt-3 block text-center text-xs text-pink-600 hover:underline">Track Order</a>
                 )}
               </motion.div>
             );
@@ -77,7 +77,7 @@ export default function DeliveryTracker() {
             { l:'Delivered', v:delivered.length, Icon:CheckCircle, color:'text-green-600 bg-green-50 dark:bg-green-900/20' },
             { l:'Late', v:ordered.filter(isLate).length, Icon:AlertTriangle, color:'text-red-600 bg-red-50 dark:bg-red-900/20' },
           ].map(({l,v,Icon,color})=>(
-            <div key={l} className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-4 text-center">
+            <div key={l} className="bg-white dark:bg-drose-900 border border-gray-200 dark:border-drose-700 rounded-2xl p-4 text-center">
               <div className={`w-10 h-10 rounded-xl flex items-center justify-center mx-auto mb-2 ${color}`}><Icon size={20} /></div>
               <p className="text-2xl font-bold text-gray-900 dark:text-white">{v}</p>
               <p className="text-xs text-gray-500">{l}</p>

@@ -28,7 +28,7 @@ export default function Notes() {
 
   const handleDelete = (id) => deleteDocument(COLLECTIONS.COMMENTS, id);
 
-  const USER_COLORS = { 'Vignesh V': 'bg-blue-600', 'Firdouse Fathima': 'bg-purple-600' };
+  const USER_COLORS = { 'Vignesh V': 'bg-pink-600', 'Firdouse Fathima': 'bg-purple-600' };
 
   return (
     <div className="flex-1 flex flex-col overflow-hidden">
@@ -57,7 +57,7 @@ export default function Notes() {
                         <span className="text-xs text-gray-500 font-medium">{c.author}</span>
                         <span className="text-xs text-gray-400">{formatRelativeTime(c.createdAt)}</span>
                       </div>
-                      <div className={`px-4 py-2.5 rounded-2xl text-sm ${isMe ? 'bg-blue-600 text-white rounded-tr-sm' : 'bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-gray-900 dark:text-white rounded-tl-sm'}`}>
+                      <div className={`px-4 py-2.5 rounded-2xl text-sm ${isMe ? 'bg-pink-600 text-white rounded-tr-sm' : 'bg-white dark:bg-drose-900 border border-gray-200 dark:border-drose-700 text-gray-900 dark:text-white rounded-tl-sm'}`}>
                         {c.text}
                       </div>
                     </div>
@@ -75,10 +75,10 @@ export default function Notes() {
       </div>
 
       {/* Input */}
-      <div className="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-4">
+      <div className="border-t border-gray-200 dark:border-drose-700 bg-white dark:bg-drose-900 p-4">
         <form onSubmit={handleSend} className="flex gap-3 max-w-3xl mx-auto">
           <input value={text} onChange={e => setText(e.target.value)} placeholder="Type a note or comment..."
-            className="flex-1 px-4 py-2.5 border border-gray-300 dark:border-gray-700 rounded-2xl bg-gray-50 dark:bg-gray-800 text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            className="flex-1 px-4 py-2.5 border border-gray-300 dark:border-drose-600 rounded-2xl bg-gray-50 dark:bg-drose-800 text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-pink-500" />
           <Button type="submit" variant="primary" disabled={!text.trim() || loading} icon={Send}>Send</Button>
         </form>
       </div>

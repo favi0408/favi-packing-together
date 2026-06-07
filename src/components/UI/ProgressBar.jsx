@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 export const ProgressBar = ({ value, max = 100, color = 'blue', showLabel = true, height = 'h-2' }) => {
   const pct = max > 0 ? Math.min(100, (value / max) * 100) : 0;
   const colors = {
-    blue: 'bg-blue-500', green: 'bg-green-500', yellow: 'bg-yellow-500',
+    blue: 'bg-pink-500', green: 'bg-green-500', yellow: 'bg-yellow-500',
     red: 'bg-red-500', purple: 'bg-purple-500',
   };
   return (

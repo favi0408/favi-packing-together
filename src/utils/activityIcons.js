@@ -5,7 +5,7 @@ import {
 // Maps an activity type to a lucide icon + tint colour classes.
 export const ACTIVITY_ICONS = {
   item_added:       { Icon: Plus,          color: 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400' },
-  item_updated:     { Icon: Pencil,        color: 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400' },
+  item_updated:     { Icon: Pencil,        color: 'bg-pink-100 dark:bg-rose-900/30 text-pink-700 dark:text-pink-400' },
   item_deleted:     { Icon: Trash2,        color: 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400' },
   status_changed:   { Icon: RefreshCw,     color: 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400' },
   comment_added:    { Icon: MessageSquare, color: 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400' },

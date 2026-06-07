@@ -40,7 +40,7 @@ export default function Categories() {
             const catTotal = items.filter(item => item.categoryId === cat.id).reduce((s, item) => s + (item.totalPrice || 0), 0);
             return (
               <motion.div key={cat.id} initial={{ opacity:0, y:12 }} animate={{ opacity:1, y:0 }} transition={{ delay: i * 0.05 }}
-                className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-5 hover:border-blue-300 dark:hover:border-blue-700 transition-all group">
+                className="bg-white dark:bg-drose-900 border border-gray-200 dark:border-drose-700 rounded-2xl p-5 hover:border-pink-300 dark:hover:border-pink-700 transition-all group">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-3">
                     <CategoryIcon category={cat} size={48} />
@@ -50,7 +50,7 @@ export default function Categories() {
                     </div>
                   </div>
                   <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <button onClick={() => openEdit(cat)} className="p-1.5 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 text-blue-600"><Edit2 size={14}/></button>
+                    <button onClick={() => openEdit(cat)} className="p-1.5 rounded-lg hover:bg-pink-50 dark:hover:bg-rose-900/20 text-pink-600"><Edit2 size={14}/></button>
                     <button onClick={() => deleteCategory(cat.id)} className="p-1.5 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 text-red-500"><Trash2 size={14}/></button>
                   </div>
                 </div>
@@ -58,7 +58,7 @@ export default function Categories() {
                   <span className="text-gray-500">{count} items</span>
                   <span className="font-semibold text-gray-900 dark:text-white">₹{catTotal.toLocaleString('en-IN')}</span>
                 </div>
-                <div className="mt-2 h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+                <div className="mt-2 h-1.5 bg-gray-100 dark:bg-drose-800 rounded-full overflow-hidden">
                   <div className="h-full rounded-full" style={{ width: count > 0 ? `${Math.min(100,(count/Math.max(...categories.map(c=>items.filter(i=>i.categoryId===c.id).length),1))*100)}%` : '0%', backgroundColor: cat.color }} />
                 </div>
               </motion.div>
@@ -72,7 +72,7 @@ export default function Categories() {
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Category Name *</label>
             <input required value={form.name} onChange={e => setForm(p => ({...p, name: e.target.value}))} placeholder="e.g. Accessories"
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm" />
+              className="w-full px-3 py-2 border border-gray-300 dark:border-drose-600 rounded-xl bg-white dark:bg-drose-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-pink-500 text-sm" />
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Color</label>

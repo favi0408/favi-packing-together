@@ -52,12 +52,12 @@ export default function Statistics() {
         {/* Summary Cards */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {[
-            { l:'Total Items', v:items.length, Icon:Package, color:'text-blue-600 bg-blue-50 dark:bg-blue-900/20' },
+            { l:'Total Items', v:items.length, Icon:Package, color:'text-pink-600 bg-pink-50 dark:bg-rose-900/20' },
             { l:'Total Cost', v:formatCurrency(totalCost), Icon:Wallet, color:'text-yellow-600 bg-yellow-50 dark:bg-yellow-900/20' },
             { l:'Delivered Value', v:formatCurrency(deliveredCost), Icon:CheckCircle, color:'text-green-600 bg-green-50 dark:bg-green-900/20' },
             { l:'Top Vendor', v:topVendor?topVendor[0]:'—', Icon:Store, color:'text-purple-600 bg-purple-50 dark:bg-purple-900/20' },
           ].map(({l,v,Icon,color})=>(
-            <div key={l} className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-5">
+            <div key={l} className="bg-white dark:bg-drose-900 border border-gray-200 dark:border-drose-700 rounded-2xl p-5">
               <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3 ${color}`}><Icon size={20} /></div>
               <p className="text-xl font-bold text-gray-900 dark:text-white truncate">{v}</p>
               <p className="text-xs text-gray-500 mt-1">{l}</p>
@@ -125,7 +125,7 @@ export default function Statistics() {
         {/* Vendor Stats */}
         {vendorData.length > 0 && (
           <Card className="p-6">
-            <h3 className="font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2"><Store size={18} className="text-blue-600" /> Vendor Distribution</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2"><Store size={18} className="text-pink-600" /> Vendor Distribution</h3>
             <ResponsiveContainer width="100%" height={200}>
               <BarChart data={vendorData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />

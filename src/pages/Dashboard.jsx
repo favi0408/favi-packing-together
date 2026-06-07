@@ -13,7 +13,7 @@ import { getActivityIcon } from '../utils/activityIcons';
 
 const StatCard = ({ icon: Icon, label, value, sub, color = 'blue', delay = 0 }) => {
   const colors = {
-    blue: 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400',
+    blue: 'bg-pink-50 dark:bg-rose-900/20 text-pink-600 dark:text-pink-400',
     green: 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400',
     yellow: 'bg-yellow-50 dark:bg-yellow-900/20 text-yellow-600 dark:text-yellow-400',
     purple: 'bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400',
@@ -21,7 +21,7 @@ const StatCard = ({ icon: Icon, label, value, sub, color = 'blue', delay = 0 }) 
   };
   return (
     <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay }}
-      className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-5">
+      className="bg-white dark:bg-drose-900 border border-gray-200 dark:border-drose-700 rounded-2xl p-5">
       <div className="flex items-center justify-between mb-3">
         <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${colors[color]}`}>
           <Icon size={20} />
@@ -62,12 +62,12 @@ export default function Dashboard() {
 
         {/* Hero Banner */}
         <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
-          className="relative overflow-hidden bg-gradient-to-r from-blue-600 to-blue-800 rounded-3xl p-6 text-white">
+          className="relative overflow-hidden bg-gradient-to-r from-pink-600 to-rose-800 rounded-3xl p-6 text-white">
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-2 right-8 text-8xl">🇨🇷</div>
           </div>
           <div className="relative">
-            <p className="text-blue-200 text-sm mb-1">India → Costa Rica 🇨🇷 · Long-term Move</p>
+            <p className="text-pink-200 text-sm mb-1">India → Costa Rica 🇨🇷</p>
             <h2 className="text-2xl font-bold mb-4">Packing Progress</h2>
             <div className="mb-2">
               <ProgressBar value={delivered} max={total || 1} color="green" showLabel={false} height="h-3" />
@@ -91,11 +91,11 @@ export default function Dashboard() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <Card className="p-6">
             <h3 className="font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-              <TrendingUp size={18} className="text-blue-600" /> Budget Overview
+              <TrendingUp size={18} className="text-pink-600" /> Budget Overview
             </h3>
             <div className="space-y-4">
               {[
-                { label: 'Total Budget', val: formatCurrency(budget), color: 'text-blue-600' },
+                { label: 'Total Budget', val: formatCurrency(budget), color: 'text-pink-600' },
                 { label: 'Total Planned', val: formatCurrency(totalCost), color: 'text-gray-900 dark:text-white' },
                 { label: 'Delivered Cost', val: formatCurrency(deliveredCost), color: 'text-green-600' },
                 { label: 'Ordered Cost', val: formatCurrency(orderedCost), color: 'text-yellow-600' },
@@ -118,7 +118,7 @@ export default function Dashboard() {
               <h3 className="font-semibold text-gray-900 dark:text-white flex items-center gap-2">
                 <Activity size={18} className="text-purple-600" /> Recent Activity
               </h3>
-              <Link to="/activity" className="text-xs text-blue-600 hover:underline flex items-center gap-1">
+              <Link to="/activity" className="text-xs text-pink-600 hover:underline flex items-center gap-1">
                 View all <ArrowRight size={12} />
               </Link>
             </div>
@@ -146,7 +146,7 @@ export default function Dashboard() {
         {/* Quick Actions */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {[
-            { to: '/shopping', label: 'Add Item', icon: ShoppingCart, color: 'from-blue-500 to-blue-600' },
+            { to: '/shopping', label: 'Add Item', icon: ShoppingCart, color: 'from-pink-500 to-pink-600' },
             { to: '/documents', label: 'Documents', icon: FileText, color: 'from-green-500 to-green-600' },
             { to: '/budget', label: 'Budget', icon: Wallet, color: 'from-yellow-500 to-orange-500' },
             { to: '/delivery', label: 'Delivery', icon: Package, color: 'from-purple-500 to-purple-600' },

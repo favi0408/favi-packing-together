@@ -86,7 +86,7 @@ export const Sidebar = () => {
   return (
     <>
       {/* Desktop */}
-      <aside className="hidden lg:flex flex-col w-64 bg-white dark:bg-gray-900 border-r border-pink-100 dark:border-pink-900/30 h-screen sticky top-0 flex-shrink-0">
+      <aside className="hidden lg:flex flex-col w-64 bg-white dark:bg-drose-900 border-r border-pink-100 dark:border-pink-900/30 h-screen sticky top-0 flex-shrink-0">
         {content}
       </aside>
 
@@ -97,7 +97,7 @@ export const Sidebar = () => {
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
               className="fixed inset-0 z-40 bg-black/50 lg:hidden" onClick={() => setSidebarOpen(false)} />
             <motion.aside initial={{ x: -280 }} animate={{ x: 0 }} exit={{ x: -280 }} transition={{ type: 'spring', damping: 30 }}
-              className="fixed left-0 top-0 bottom-0 z-50 w-72 bg-white dark:bg-gray-900 shadow-2xl flex flex-col lg:hidden">
+              className="fixed left-0 top-0 bottom-0 z-50 w-72 bg-white dark:bg-drose-900 shadow-2xl flex flex-col lg:hidden">
               <button onClick={() => setSidebarOpen(false)}
                 className="absolute top-4 right-4 p-2 rounded-xl hover:bg-pink-50 dark:hover:bg-pink-900/20 text-gray-500">
                 <X size={20} />

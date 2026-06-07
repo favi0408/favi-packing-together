@@ -19,8 +19,8 @@ export const Modal = ({ isOpen, onClose, title, children, size = 'md' }) => {
             className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={onClose} />
           <motion.div initial={{ opacity: 0, scale: 0.95, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }} transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className={`relative w-full ${sizes[size]} bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-800 max-h-[90vh] flex flex-col`}>
-            <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-800 flex-shrink-0">
+            className={`relative w-full ${sizes[size]} bg-white dark:bg-drose-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-drose-700 max-h-[90vh] flex flex-col`}>
+            <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-drose-700 flex-shrink-0">
               <h2 className="text-xl font-semibold text-gray-900 dark:text-white">{title}</h2>
               <button onClick={onClose} className="p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 transition-colors">
                 <X size={20} />

@@ -3,11 +3,11 @@ import { motion } from 'framer-motion';
 
 export const Button = ({ children, onClick, variant = 'primary', size = 'md', className = '', disabled = false, type = 'button', icon: Icon }) => {
   const variants = {
-    primary: 'bg-blue-600 hover:bg-blue-700 text-white shadow-sm',
-    secondary: 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300',
-    danger: 'bg-red-600 hover:bg-red-700 text-white',
-    ghost: 'hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-400',
-    success: 'bg-green-600 hover:bg-green-700 text-white',
+    primary:   'bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white shadow-sm shadow-pink-200 dark:shadow-pink-900/30',
+    secondary: 'bg-pink-50 dark:bg-drose-800 hover:bg-pink-100 dark:hover:bg-drose-700 text-pink-700 dark:text-pink-300 border border-pink-200 dark:border-drose-600',
+    danger:    'bg-red-500 hover:bg-red-600 text-white shadow-sm',
+    ghost:     'hover:bg-pink-50 dark:hover:bg-drose-800 text-pink-600 dark:text-pink-400',
+    success:   'bg-green-500 hover:bg-green-600 text-white shadow-sm',
   };
   const sizes = { sm: 'px-3 py-1.5 text-xs', md: 'px-4 py-2 text-sm', lg: 'px-6 py-3 text-base' };
   return (

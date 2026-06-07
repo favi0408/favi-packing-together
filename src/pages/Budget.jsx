@@ -44,9 +44,9 @@ export default function Budget() {
             { l:'Delivered Cost', v:formatCurrency(totalDelivered), Icon:CheckCircle, c:'green' },
             { l:'Remaining', v:formatCurrency(remaining), Icon:Wallet, c: remaining >= 0 ? 'green' : 'red' },
           ].map(({ l,v,Icon,c }) => {
-            const tint = { blue:'text-blue-600 bg-blue-50 dark:bg-blue-900/20', purple:'text-purple-600 bg-purple-50 dark:bg-purple-900/20', green:'text-green-600 bg-green-50 dark:bg-green-900/20', red:'text-red-600 bg-red-50 dark:bg-red-900/20' }[c];
+            const tint = { blue:'text-pink-600 bg-pink-50 dark:bg-rose-900/20', purple:'text-purple-600 bg-purple-50 dark:bg-purple-900/20', green:'text-green-600 bg-green-50 dark:bg-green-900/20', red:'text-red-600 bg-red-50 dark:bg-red-900/20' }[c];
             return (
-            <div key={l} className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-5">
+            <div key={l} className="bg-white dark:bg-drose-900 border border-gray-200 dark:border-drose-700 rounded-2xl p-5">
               <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3 ${tint}`}><Icon size={20} /></div>
               <p className={`text-xl font-bold ${c==='red'?'text-red-600':c==='green'?'text-green-600':'text-gray-900 dark:text-white'}`}>{v}</p>
               <p className="text-xs text-gray-500 mt-1">{l}</p>
@@ -102,7 +102,7 @@ export default function Budget() {
                     <span className="flex items-center gap-2 text-gray-600 dark:text-gray-400"><span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: cat.color }} /> {cat.name}</span>
                     <span className="font-medium text-gray-900 dark:text-white">{formatCurrency(cat.value)}</span>
                   </div>
-                  <div className="h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+                  <div className="h-1.5 bg-gray-100 dark:bg-drose-800 rounded-full overflow-hidden">
                     <div className="h-full rounded-full" style={{ width: totalPlanned > 0 ? `${(cat.value/totalPlanned)*100}%` : '0%', backgroundColor: COLORS[i%COLORS.length] }} />
                   </div>
                 </div>
@@ -118,7 +118,7 @@ export default function Budget() {
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Budget Amount (₹)</label>
             <input type="number" value={newBudget} onChange={e => setNewBudget(+e.target.value)} min="0" step="1000"
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg font-semibold" />
+              className="w-full px-3 py-2 border border-gray-300 dark:border-drose-600 rounded-xl bg-white dark:bg-drose-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-pink-500 text-lg font-semibold" />
           </div>
           <div className="flex gap-3">
             <Button variant="primary" className="flex-1" onClick={() => { setBudget(newBudget); setEditBudget(false); }}>Save Budget</Button>

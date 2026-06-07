@@ -31,7 +31,7 @@ export default function Activity() {
       <TopBar title="Activity Timeline" subtitle={activities.length + ' total events'} />
       <div className="p-4 lg:p-8 max-w-3xl mx-auto">
         {loading ? (
-          <div className="flex justify-center py-16"><div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin" /></div>
+          <div className="flex justify-center py-16"><div className="w-8 h-8 border-4 border-pink-600 border-t-transparent rounded-full animate-spin" /></div>
         ) : activities.length === 0 ? (
           <div className="text-center py-16 text-gray-400">
             <ActivityIcon size={48} className="mx-auto mb-4 opacity-30" />
@@ -43,9 +43,9 @@ export default function Activity() {
             {Object.entries(grouped).map(([date, acts]) => (
               <div key={date}>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="h-px flex-1 bg-gray-200 dark:bg-gray-800" />
-                  <span className="text-xs font-medium text-gray-500 bg-white dark:bg-gray-950 px-3">{date}</span>
-                  <div className="h-px flex-1 bg-gray-200 dark:bg-gray-800" />
+                  <div className="h-px flex-1 bg-gray-200 dark:bg-drose-800" />
+                  <span className="text-xs font-medium text-gray-500 bg-white dark:bg-drose-950 px-3">{date}</span>
+                  <div className="h-px flex-1 bg-gray-200 dark:bg-drose-800" />
                 </div>
                 <div className="space-y-3">
                   {acts.map((a, i) => {
@@ -56,7 +56,7 @@ export default function Activity() {
                         <div className={`w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 ${color}`}>
                           <Icon size={15} />
                         </div>
-                        <div className="flex-1 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl px-4 py-3">
+                        <div className="flex-1 bg-white dark:bg-drose-900 border border-gray-200 dark:border-drose-700 rounded-xl px-4 py-3">
                           <p className="text-sm text-gray-800 dark:text-gray-200">{a.message}</p>
                           <p className="text-xs text-gray-400 mt-1">{formatRelativeTime(a.createdAt)}</p>
                         </div>

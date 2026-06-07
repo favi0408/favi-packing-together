@@ -21,7 +21,7 @@ const ItemRow = ({ item, onToggle, onEdit, onDelete }) => {
       <button onClick={() => onToggle(item)} className="flex-shrink-0" title={done ? 'Mark as not bought' : 'Mark as bought'}>
         {done
           ? <CheckCircle2 size={20} className="text-green-500" />
-          : <Circle size={20} className="text-gray-300 dark:text-gray-600 hover:text-blue-500" />}
+          : <Circle size={20} className="text-gray-300 dark:text-gray-600 hover:text-pink-500" />}
       </button>
       <div className="flex-1 min-w-0">
         <p className={`text-sm truncate ${done ? 'line-through text-gray-400' : 'text-gray-900 dark:text-white'}`}>{item.name}</p>
@@ -35,7 +35,7 @@ const ItemRow = ({ item, onToggle, onEdit, onDelete }) => {
         {item.purchaseUrl && (
           <a href={item.purchaseUrl} target="_blank" rel="noreferrer" className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500"><ExternalLink size={14} /></a>
         )}
-        <button onClick={() => onEdit(item)} className="p-1.5 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 text-blue-600" title="Add price / details"><Pencil size={14} /></button>
+        <button onClick={() => onEdit(item)} className="p-1.5 rounded-lg hover:bg-pink-50 dark:hover:bg-rose-900/20 text-pink-600" title="Add price / details"><Pencil size={14} /></button>
         <button onClick={() => onDelete(item.id, item.name)} className="p-1.5 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 text-red-500"><Trash2 size={14} /></button>
       </div>
     </div>
@@ -111,18 +111,18 @@ export default function ShoppingList() {
           <div className="flex-1 relative">
             <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
             <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search items..."
-              className="w-full pl-9 pr-9 py-2.5 border border-gray-300 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-white" />
+              className="w-full pl-9 pr-9 py-2.5 border border-gray-300 dark:border-drose-600 rounded-xl bg-white dark:bg-drose-900 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500 dark:text-white" />
             {search && <button onClick={() => setSearch('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"><X size={14} /></button>}
           </div>
           <button onClick={() => setHideDone(p => !p)}
-            className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${hideDone ? 'bg-blue-600 text-white' : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700'}`}>
+            className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${hideDone ? 'bg-pink-600 text-white' : 'bg-gray-100 dark:bg-drose-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700'}`}>
             Hide bought
           </button>
         </div>
 
         {/* Category boxes */}
         {loading ? (
-          <div className="flex justify-center py-16"><div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin" /></div>
+          <div className="flex justify-center py-16"><div className="w-8 h-8 border-4 border-pink-600 border-t-transparent rounded-full animate-spin" /></div>
         ) : groups.length === 0 ? (
           <div className="text-center py-16 text-gray-400">
             <p className="text-lg font-medium">No items yet</p>
@@ -138,7 +138,7 @@ export default function ShoppingList() {
                   <motion.div key={category?.id || 'uncategorized'} layout
                     initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
                     <Card className="p-5">
-                      <div className="flex items-center gap-3 mb-3 pb-3 border-b border-gray-100 dark:border-gray-800">
+                      <div className="flex items-center gap-3 mb-3 pb-3 border-b border-gray-100 dark:border-drose-700">
                         <CategoryIcon category={category || { name: 'Other', color: '#6b7280' }} size={40} />
                         <div className="flex-1 min-w-0">
                           <h3 className="font-semibold text-gray-900 dark:text-white truncate">{category?.name || 'Uncategorized'}</h3>
