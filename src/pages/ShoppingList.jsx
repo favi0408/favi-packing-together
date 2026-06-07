@@ -45,12 +45,18 @@ const ItemRow = ({ item, onToggle, onEdit, onDelete }) => {
 export default function ShoppingList() {
   const { items, loading, addItem, updateItem, deleteItem } = useItems();
   const { categories } = useCategories();
-  const [addOpen, setAddOpen] = useState(false);
-  const [editItem, setEditItem] = useState(null);
+  const [addOpen, setAddOpen]         = useState(false);
+  const [addCategoryId, setAddCategoryId] = useState('');
+  const [editItem, setEditItem]       = useState(null);
+
+  const openAddForCategory = (categoryId = '') => {
+    setAddCategoryId(categoryId);
+    setAddOpen(true);
+  };
   const [search, setSearch] = useState('');
   const [hideDone, setHideDone] = useState(false);
 
-  const handleAdd = async (data) => { await addItem(data); setAddOpen(false); };
+  const handleAdd = async (data) => { await addItem(data); setAddOpen(false); setAddCategoryId(''); };
   const handleEdit = async (data) => { await updateItem(editItem.id, data, editItem); setEditItem(null); };
   const togglePurchased = (item) => {
     const status = isDone(item) ? 'not_purchased' : 'delivered';
@@ -101,7 +107,7 @@ export default function ShoppingList() {
         actions={
           <div className="flex gap-2">
             <Button variant="secondary" size="sm" icon={Download} onClick={exportCSV}>Export</Button>
-            <Button variant="primary" size="sm" icon={Plus} onClick={() => setAddOpen(true)}>Add Item</Button>
+            <Button variant="primary" size="sm" icon={Plus} onClick={() => openAddForCategory()}>Add Item</Button>
           </div>
         }
       />
@@ -144,6 +150,13 @@ export default function ShoppingList() {
                           <h3 className="font-semibold text-gray-900 dark:text-white truncate">{category?.name || 'Uncategorized'}</h3>
                           <p className="text-xs text-gray-500">{groupDone}/{groupItems.length} bought{groupTotal > 0 ? ` · ${formatCurrency(groupTotal)}` : ''}</p>
                         </div>
+                        <button
+                          onClick={() => openAddForCategory(category?.id || '')}
+                          title={`Add item to ${category?.name || 'Uncategorized'}`}
+                          className="flex-shrink-0 w-7 h-7 rounded-full bg-pink-100 dark:bg-drose-700 hover:bg-pink-200 dark:hover:bg-drose-600 text-pink-600 dark:text-pink-300 flex items-center justify-center transition-colors"
+                        >
+                          <Plus size={14} />
+                        </button>
                       </div>
                       <div className="divide-y divide-gray-50 dark:divide-gray-800/50">
                         {groupItems.map(item => (
@@ -160,8 +173,13 @@ export default function ShoppingList() {
       </div>
 
       {/* Quick add — name, category, quantity only */}
-      <Modal isOpen={addOpen} onClose={() => setAddOpen(false)} title="Add Item" size="sm">
-        <ItemForm minimal onSubmit={handleAdd} onCancel={() => setAddOpen(false)} categories={categories} />
+      <Modal isOpen={addOpen} onClose={() => { setAddOpen(false); setAddCategoryId(''); }}
+        title={addCategoryId ? `Add to ${categories.find(c => c.id === addCategoryId)?.name || 'Category'}` : 'Add Item'}
+        size="sm">
+        <ItemForm minimal onSubmit={handleAdd}
+          onCancel={() => { setAddOpen(false); setAddCategoryId(''); }}
+          categories={categories}
+          initial={addCategoryId ? { categoryId: addCategoryId } : {}} />
       </Modal>
 
       {/* Full edit — add price/vendor/status after buying */}
