@@ -5,3 +5,5 @@ dist
 .DS_Store
 *.log
 seed.mjs
+sync-receipts.mjs
+fix-matches.mjs
